@@ -1,5 +1,5 @@
 var path = require('path')
-
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     // 入口文件配置
     entry: "./src/main.js",
@@ -9,7 +9,7 @@ module.exports = {
         // 输出的路径
         path: path.join(__dirname, 'dist'),
         // 静态资源在服务器上运行时的访问路径，可以直接http://localhost:8080/dist/bundle.js访问到服务器中的bundle.js文件
-        publicPath: '/dist',
+        // publicPath: '/dist',
         // 输出文件名字
         filename: "bundle.js"
     },
@@ -33,8 +33,10 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
+                exclude: /(node_modules)/, // node_modules下面的.js文件会被排除
+                use: {
+                    loader: 'babel-loader',
+                }
             },
             //解析.vue文件
             {
@@ -45,9 +47,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: './src/index.html',
-            template: 'template.html',
-            title: 'webpack-html的使用'
+            filename: 'index.html',
+            template: './src/index.html'
         })
     ]
 }

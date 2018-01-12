@@ -1,8 +1,6 @@
 <template>
     <div>
-        公共头部
-        <router-view></router-view>
-        公共底部
+        注册页面
     </div>
 </template>
 

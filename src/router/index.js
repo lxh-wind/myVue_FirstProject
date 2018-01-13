@@ -4,7 +4,7 @@ import Register from '../component/register/Register.vue'
 
 //把路由规则暴露出去
 export default{
-    routes:[
+    routes: [
         { name: 'login', path:'/login',component:Login },
         { name: 'register', path: '/register', component: Register }
     ]

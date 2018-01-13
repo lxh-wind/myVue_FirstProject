@@ -38,6 +38,16 @@ module.exports = {
                     loader: 'babel-loader',
                 }
             },
+            {
+                test: /\.(png|jpg|gif|ttf|woff)/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        //当图片大于设置的limit的值  那么是一个图片的名字   当小于指定大小的时候   是一个base64的格式
+                        limit: 5000
+                    }
+                }]
+            },
             //解析.vue文件
             {
                 test: /\.vue$/,

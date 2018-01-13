@@ -1,15 +1,18 @@
+// 导入默认初始样式
+import 'normalize.css'
 //引入vue相关的第三方包
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 //使用插件
 Vue.use(VueRouter);
-
+Vue.use(ElementUI);
 //引入根组件App
 import App from './component/App.vue';
 
 //导入路由配置
-import routerConfig from './router/index.js'  ;             
+import routerConfig from './router/index.js';             
 
 //引入axios    一个http库    并加到vue的protoType上  方便使用
 import Axios from 'axios';

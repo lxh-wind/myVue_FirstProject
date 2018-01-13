@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div id="appbg">
         <router-view></router-view>
     </div>
 </template>
@@ -11,7 +11,7 @@
 </script>
 
 <style>
-    div{
+    #appbg{
         height: 100%;
         background: #0078d7
     }

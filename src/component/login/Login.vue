@@ -30,11 +30,11 @@
                     // 以字段名为key    数组为val
                     uname: [ 
                         { required: true, message: '请输入用户名', trigger: 'blur' },
-                        { pattern: /\w{4,18}/, message: '长度在 4 到 18 个字符, 且只能为字母或数字', trigger: 'blur' }
+                        { pattern: /\w{4,10}/, message: '长度在 4 到 10 个字符, 且只能为字母或数字', trigger: 'blur' }
                     ],
                     upwd: [
                         { required: true, message: '请输入密码', trigger: 'blur' },
-                        { pattern: /.{6,18}/, message: '长度在 6 到 18 个字符', trigger: 'blur' }
+                        { pattern: /.{6,12}/, message: '长度在 6 到 12 个字符', trigger: 'blur' }
                     ]
                 }
             };
@@ -48,7 +48,8 @@
                         .then(res=>{
                             console.log(res);
                             if(res.data.status == 0){
-                                alert('登录成功');
+                                //$router上有个方法  push  可以直接实现路由的跳转  
+                                this.$router.push('admin');
                             }else{
                                 alert(res.data.message);
                             }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        右侧
+        左侧
     </div>
 </template>
 

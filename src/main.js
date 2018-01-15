@@ -20,7 +20,7 @@ import routerConfig from './router/index.js';
 //引入axios    一个http库    并加到vue的protoType上  方便使用
 import Axios from 'axios';
 //Axios  默认有个属性  可以加上域名
-Axios.defaults.baseURL = 'http://157.122.54.189:9095'
+Axios.defaults.baseURL = 'http://localhost:8899'
 Vue.prototype.$http = Axios;
 
 //配置一个api文件  方便使用请求路径

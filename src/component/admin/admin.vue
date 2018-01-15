@@ -1,13 +1,13 @@
 <template>
     <el-container id="admin">
-        <el-aside width="200px">
+        <el-aside width="196px">
             <Aside></Aside>
         </el-aside>
         <el-container>
-            <el-header>
+            <el-header style="height: 56px;">
                 <Header></Header>
             </el-header>
-            <el-main>Main</el-main>
+            <el-main><router-view></router-view></el-main>
         </el-container>
     </el-container>
 </template>
@@ -30,16 +30,17 @@
 #admin{
     height: 100%;
 }
-.el-header, .el-footer {
-    background-color: #B3C0D1;
+.el-header,.el-footer {
+    background-color: #EBECEE;
     color: #333;
+    
 }
 .el-aside {
-    background-color: #D3DCE6;
+    background-color: #409EFF;
     color: #333;
 }
 .el-main {
-    background-color: #E9EEF3;
+    background-color: #fff;
     color: #333;
 }
 </style>

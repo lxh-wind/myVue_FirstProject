@@ -36,12 +36,26 @@
                         { required: true, message: '请输入密码', trigger: 'blur' },
                         { pattern: /.{6,12}/, message: '长度在 6 到 12 个字符', trigger: 'blur' }
                     ]
-                }
+                },
             };
         },
         created(){       
         },
         methods:{
+            //模拟加载中 方法
+            openFullScreen() {
+                const loading = this.$loading({
+                    lock: true,
+                    text: '拼命加载中...',
+                    spinner: 'el-icon-loading',
+                    background: 'rgba(0, 0, 0, 0.7)'
+                });
+                setTimeout(() => {
+                    loading.close();
+                    //调用请求函数
+                    this.login();
+                }, 1000);
+            },
             //登录的请求函数
             login(){
                 this.$http.post(this.$api.login,this.ruleForm)
@@ -59,7 +73,8 @@
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        this.login();
+                        // 调用加载的方法
+                        this.openFullScreen();
                     } else {
                         alert('请重新输入账号或密码！！');
                         return false;
@@ -75,6 +90,9 @@
 </script>
 
 <style>
+#loginId{
+    height: 100%;
+}
 .login{
     width: 350px;
     height: 180px;

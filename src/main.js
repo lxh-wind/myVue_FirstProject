@@ -19,13 +19,21 @@ import routerConfig from './router/index.js';
 
 //引入axios    一个http库    并加到vue的protoType上  方便使用
 import Axios from 'axios';
+// 我们是跨域请求的接口, 默认不会携带cookie等信息, 后端需要这些信息来判断登陆状态, 所以要设为true
+Axios.defaults.withCredentials = true;
 //Axios  默认有个属性  可以加上域名
 Axios.defaults.baseURL = 'http://localhost:8899'
+// Axios.defaults.baseURL = 'http://111.230.109.42:8899'
 Vue.prototype.$http = Axios;
 
 //配置一个api文件  方便使用请求路径
 import Api from './js/Api.js';
 Vue.prototype.$api = Api;
+
+//我们需要实现登录验证逻辑
+import beforeEachs from './router/beforeEach.js';
+const router = new VueRouter(routerConfig);
+router.beforeEach(beforeEachs);
 
 
 //将根组件渲染到视图
@@ -35,5 +43,5 @@ new Vue({
         return createElement(App);
     },
     // 挂载路由
-    router: new VueRouter(routerConfig)
+    router
 });
